@@ -1,6 +1,5 @@
 package com.github.raonifn.qunitpage.junit;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +23,10 @@ public class QUnitRunner extends ParentRunner<QUnitTestCase> {
 
 	@Override
 	protected List<QUnitTestCase> getChildren() {
-
-		List<String> urls = findJS(jUnitMethodCaller.getDir(),
+		TestScanner testScanner = new TestScanner(jUnitMethodCaller.getDir(),
 				jUnitMethodCaller.getRoot());
+
+		List<String> urls = testScanner.findTests();
 		List<QUnitTestCase> ret = new ArrayList<QUnitTestCase>(urls.size());
 
 		for (String url : urls) {
@@ -47,21 +47,6 @@ public class QUnitRunner extends ParentRunner<QUnitTestCase> {
 	protected void runChild(QUnitTestCase child, RunNotifier notifier) {
 		jUnitMethodCaller.instanciate();
 		child.run(notifier, jUnitMethodCaller);
-	}
-
-	protected static List<String> findJS(String pathname, String root) {
-		File file = new File(pathname);
-
-		List<String> ret = new ArrayList<String>();
-
-		if (file.exists() && file.isDirectory()) {
-			for (File f : file.listFiles()) {
-				String fileName = f.getPath().replaceAll(".*/", "");
-				ret.add(root + "/" + fileName);
-			}
-		}
-
-		return ret;
 	}
 
 }
