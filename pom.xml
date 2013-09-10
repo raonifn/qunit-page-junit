@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<name>qunit-page-junit</name>
+	<groupId>com.github.raonifn</groupId>
+	<artifactId>qunit-page-junit</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<mycontainer-version>1.4.0</mycontainer-version>
+		<repository.local>file:///home2/raoni/projs/repository/releases</repository.local>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.mycontainer</groupId>
+			<artifactId>mycontainer-kernel</artifactId>
+			<version>${mycontainer-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.mycontainer</groupId>
+			<artifactId>mycontainer-web</artifactId>
+			<version>${mycontainer-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.28.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>2.28.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.detro.ghostdriver</groupId>
+			<artifactId>phantomjsdriver</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+	</dependencies>
+
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.0.2</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>repo</id>
+			<name>Repository Name</name>
+			<url>${repository.local}</url>
+		</repository>
+
+	</distributionManagement>
+
+
+	<scm>
+		<connection>scm:git:git@github.com:raonifn/junit-casperjs.git</connection>
+		<url>https://github.com/raonifn/junit-casperjs</url>
+	</scm>
+</project>
